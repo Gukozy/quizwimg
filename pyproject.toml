@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "quizwimg"
+version = "0.1.0"
+description = "Turn any document into an offline, single-file HTML quiz — with the actual figures from your PDFs."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "Gukozy" }]
+keywords = ["quiz", "pdf", "education", "html", "llm-agent", "claude-code"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Education :: Computer Aided Instruction (CAI)",
+]
+
+[project.optional-dependencies]
+pdf = ["pymupdf>=1.24", "pillow>=10.0"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+quizwimg = "quizwimg.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Gukozy/quizwimg"
+Issues = "https://github.com/Gukozy/quizwimg/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
