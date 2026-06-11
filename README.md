@@ -18,7 +18,50 @@ Turn any document — lecture slides, textbooks, scanned past exams — into a p
 
 ## Quick start
 
-*(coming this week — engine port in progress)*
+```bash
+pip install "quizwimg[pdf] @ git+https://github.com/Gukozy/quizwimg"
+
+# build the example quiz
+quizwimg build --config examples/getting-started/quiz.json --out quiz.html
+open quiz.html   # works offline, share the single file anywhere
+```
+
+Write your own `quiz.json` (or have your AI agent write it — that's the point):
+
+```json
+{
+  "title": "My Quiz",
+  "questions": [
+    {
+      "id": "q1",
+      "category": "Topic A",
+      "vignette": "Optional scenario or passage shown above the question.",
+      "prompt": "The question itself?",
+      "choices": ["First", "Second", "Third", "Fourth"],
+      "correct": 1,
+      "explanation": "Why the answer is right.",
+      "image": "figures/fig1.png"
+    }
+  ]
+}
+```
+
+UI language: `"lang": "en"` (default) or `"ko"`, with per-string overrides via `"strings": {...}` for any other language.
+
+### Pull figures out of your PDFs
+
+```bash
+# embedded raster images (photos, scans), at original resolution
+quizwimg extract embedded lecture.pdf --out-dir figures/
+
+# render whole pages to PNG (for your agent to read tables/diagrams visually)
+quizwimg extract pages lecture.pdf --out-dir pages/ --pages 12-15
+
+# crop a chart/table region (PDF points); repeat --clip to stitch across a page break
+quizwimg extract region lecture.pdf --clip 13:28,120,567,430 --out figures/fig1.png
+```
+
+Reference the cropped files from `quiz.json` — the builder inlines them as base64 so the output stays a single file.
 
 ## How it works
 

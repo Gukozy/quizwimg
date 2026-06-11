@@ -1,0 +1,41 @@
+{
+  "title": "Solar System Quick Quiz",
+  "subtitle": "A tiny example of the quizwimg config format",
+  "footer": "Built with quizwimg — https://github.com/Gukozy/quizwimg",
+  "lang": "en",
+  "questions": [
+    {
+      "id": "planets_count",
+      "category": "Basics",
+      "prompt": "How many planets are in the Solar System?",
+      "choices": ["7", "8", "9", "10"],
+      "correct": 1,
+      "explanation": "Eight, since Pluto was reclassified as a dwarf planet in 2006."
+    },
+    {
+      "id": "largest_planet",
+      "category": "Basics",
+      "vignette": "One planet contains more mass than all the other planets combined.",
+      "prompt": "Which planet is the largest?",
+      "choices": ["Saturn", "Neptune", "Jupiter", "Uranus"],
+      "correct": 2,
+      "explanation": "Jupiter — about 2.5 times the mass of all other planets combined."
+    },
+    {
+      "id": "hottest_planet",
+      "category": "Atmospheres",
+      "prompt": "Which planet has the hottest surface?",
+      "choices": ["Venus", "Mercury", "Mars", "Jupiter"],
+      "correct": 0,
+      "explanation": "Venus (~465°C): its dense CO2 atmosphere traps heat, beating Mercury despite being farther from the Sun."
+    },
+    {
+      "id": "mars_moons",
+      "category": "Moons",
+      "prompt": "How many moons does Mars have?",
+      "choices": ["None", "One", "Two", "Four"],
+      "correct": 2,
+      "explanation": "Two small moons: Phobos and Deimos."
+    }
+  ]
+}
