@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# OS
+.DS_Store
+
+# Secrets — never commit
+.env*
+*.pem
+*.key
+*secret*.json
+*token*.json
+*credential*.json
+
+# Local scratch
+outputs/
+*.local.*
